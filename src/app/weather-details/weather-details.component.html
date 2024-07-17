@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+</html>
+<div class="topbar">
+
+</div>
+<div class="container">
+    <input [(ngModel)]="name" placeholder="Enter the city Name">
+    <button (click)="search()" class="btn btn-primary">Search</button>
+    <div class="innerContaoner" *ngIf="cityData">
+        <div class="icon-class">
+            <i *ngIf="degree>=20"><span class="material-icons" >wb_sunny</span>{{weatherData.data[0].weather}}</i>
+            <i *ngIf="degree<20"><span class="material-icons" >ac_unit</span>{{weatherData.data[0].weather}}</i>
+            <div class="status">
+                <div>
+                    {{this.weatherData.data[0].status[0]}}
+                </div>
+                <div>
+                    {{this.weatherData.data[0].status[1]}}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="!cityData">
+        No records found
+    </div>
+</div>
+
